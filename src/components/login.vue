@@ -11,25 +11,27 @@ const handleClose = () => {
 
 <template>
   <div class="login-container">
-    <el-button @click="dialogVisible = true">显示登录对话框</el-button>
-    
+   
     <el-dialog
       v-model="dialogVisible"
       title="欢迎登录学生服务平台"
       width="500px"
       @close="handleClose"
     >
-      <span>这里是登录表单内容</span>
-      
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button @click="dialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">
-            确认
-          </el-button>
-        </div>
-      </template>
-    </el-dialog>
+
+     <el-form :model="form" label-width="auto" style="max-width: 600px">
+    <el-form-item label="账号">
+      <el-input v-model="form.name" />
+    </el-form-item>
+    <el-form-item label="密码">
+      <el-input type='password' v-model="form.name" />
+    </el-form-item>
+     </el-form>
+      <el-form-item>
+      <el-button type="primary" @click="onSubmit">Create</el-button>
+      <el-button>Cancel</el-button>
+    </el-form-item>
+      </el-dialog>
   </div>
 </template>
 
