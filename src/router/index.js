@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TheWelcome from '../components/TheWelcome.vue'
 import Login from '@/components/login.vue'
+import Firstpage from '@/pages/firstpage.vue'
 const About = { template: '<div>关于我们页面</div>' }
 
 const routes = [
@@ -18,6 +19,11 @@ const routes = [
     path: '/welcome',
     name: 'Welcome',
     component: TheWelcome
+  },
+    {
+    path: '/firstpage',
+    name: ' Firstpage',
+    component: Firstpage
   }
 ]
 

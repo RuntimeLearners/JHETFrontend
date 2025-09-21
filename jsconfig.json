@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["src/*"]
+    },
+    "lib": ["dom", "esnext"],
+    "allowSyntheticDefaultImports": true
   },
+  "include": ["src/**/*", "**/*.vue"],
   "exclude": ["node_modules", "dist"]
 }
