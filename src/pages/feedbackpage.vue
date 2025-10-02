@@ -54,19 +54,13 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
-
-// 当前激活的Tab
 const activeTab = ref('square');
-
-// 导航Tabs数据
 const tabs = ref([
   { id: 'square', name: '报修广场' },
   { id: 'myRepair', name: '我的报修' },
   { id: 'report', name: '我要报修' },
   { id: 'myWorkOrder', name: '我的工单' }
 ]);
-
-// 报修列表数据（模仿右图）
 const repairList = ref([
   {
     id: '2509007350',
@@ -93,17 +87,12 @@ const formData = reactive({
   description: ''
 });
 
-// 查看详情的方法
 const viewDetail = (item) => {
   alert(`查看报修单 ${item.id} 的详情`);
-  // 实际开发中，这里会用路由跳转到详情页
 };
 
-// 提交报修的方法
 const submitRepair = () => {
   alert(`报修提交成功！地点：${formData.location}，问题：${formData.description}`);
-  // 实际开发中，这里会调用API，将数据发送到后端服务器
-  // 重置表单
   formData.location = '';
   formData.description = '';
 };
