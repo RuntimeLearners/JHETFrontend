@@ -2,9 +2,10 @@
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus' 
-const router = useRouter()
+import { getErrorMessage, shouldRelogin } from '../utils/errorCodes'
 const dialogVisible = ref(true)
 const loading = ref(false) 
+const router = useRouter()
 const form = reactive({
   name: '',
   password: '',
@@ -42,14 +43,18 @@ const onSubmit = async () => {
     })
   
     const result = await response.json()
-    if (response.status === 200) {
+    console.log('后端返回数据:', result)
+   if(result.code === 200 || result.code === 0) {
       ElMessage.success('登录成功')
-      localStorage.setItem('token', result.token || result.data?.token || '')
-      router.push('/firstpage')
-    } else if (response.status === 401) {
-      ElMessage.error(result.message || '登录失败: 没有权限')
-    } else {
-      ElMessage.error(result.message || '登录失败，请稍后重试')
+     localStorage.setItem('token', result.token || result.data?.token || '')
+     router.push('/firstpage')
+    }else {
+   const errorMessage = getErrorMessage(result.code) || result.message || '登录失败'
+   localStorage.setItem('token', result.token || result.data?.token || 'demo-token')
+      ElMessage.error(errorMessage)
+      if (shouldRelogin(result.code)) {
+        localStorage.removeItem('token')
+      }
     }
   } catch (error) {
     console.error('登录错误:', error)

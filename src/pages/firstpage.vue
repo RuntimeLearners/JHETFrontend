@@ -6,7 +6,7 @@
         <div class="title">学生服务平台</div>
       </div>
       <nav class="navigation">
-        <a href=#>用户信息</a> |  
+        <a href='#'>用户信息</a> 
       </nav>
     </header>
 
@@ -110,7 +110,7 @@ const mainFunctions = ref([
 .function-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 40px;
 }
 
