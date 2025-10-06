@@ -120,7 +120,7 @@ const submitUserInfo = () => {
 
 <style scoped>
 .information-page {
-  padding: 20px;
+  padding: 180px;
   max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;

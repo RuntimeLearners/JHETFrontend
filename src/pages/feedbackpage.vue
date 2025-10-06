@@ -18,6 +18,21 @@
 
       <div v-if="activeTab === 'square'" class="repair-list">
         <h3>报修广场</h3>
+         <div class="filter-section">
+    <el-select v-model="filters.urgency" placeholder="紧急程度">
+      <el-option label="紧急" value="urgent" />
+      <el-option label="一般" value="normal" />
+      <el-option label="低优先级" value="low" />
+    </el-select>
+    
+    <el-select v-model="filters.status" placeholder="完结状态">
+      <el-option label="未处理" value="pending" />
+      <el-option label="处理中" value="processing" />
+      <el-option label="已完成" value="completed" />
+    </el-select>
+    
+    <el-button @click="applyFilters">筛选</el-button>
+  </div>
         <div v-for="item in repairList" :key="item.id" class="repair-item">
           <div class="repair-meta">
             <span class="time">[{{ item.time }}] {{ item.id }}</span>
@@ -52,6 +67,7 @@
       </div>
     </main>
   </div>
+ 
 </template>
 
 <script setup lang="ts">
@@ -124,6 +140,14 @@ const submitRepair = (): void => {
   formData.location = ''
   formData.description = ''
 }
+const filters = reactive({
+  urgency: '',
+  status: ''
+});
+
+const applyFilters = () => {
+  
+};
 </script>
 
 <style scoped>
@@ -267,4 +291,5 @@ const submitRepair = (): void => {
   padding: 20px;
   border-radius: 8px;
 }
+
 </style>
