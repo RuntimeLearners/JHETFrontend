@@ -38,6 +38,7 @@
             <span class="time">[{{ item.time }}] {{ item.id }}</span>
             <span class="user">{{ item.user }}</span>
             <span class="status" :class="item.status">{{ item.statusText }}</span>
+            <span class="status" :class="item.status">{{ item.statusTextt}}</span>
           </div>
           <div class="repair-content">
             <p class="location">{{ item.location }}</p>
@@ -57,7 +58,16 @@
             <label for="description">问题描述：</label>
             <textarea id="description" v-model="formData.description" required></textarea>
           </div>
-          <button type="submit" class="submit-btn">提交报修</button>
+          <div class="form-group">
+            <label for="status">紧急情况：</label>
+             <el-select v-model="filters.urgency" placeholder="紧急程度">
+         <el-option label="紧急" value="urgent" />
+         <el-option label="一般" value="normal" />
+         <el-option label="低优先级" value="low" />
+         </el-select>
+           </div>
+         <button type="submit" class="submit-btn">提交报修</button>
+          
         </form>
       </div>
 
@@ -83,6 +93,7 @@ interface RepairItem {
   user: string
   status: string
   statusText: string
+  statusTextt?: string
   location: string
   description: string
 }
@@ -107,6 +118,7 @@ const repairList = ref<RepairItem[]>([
     user: '程**',
     status: 'completed',
     statusText: '已完工',
+    statusTextt: '紧急',
     location: '莫干山校区-教学楼及公共区域-食...',
     description: '下水道堵了，第二排实验台'
   },
@@ -116,6 +128,7 @@ const repairList = ref<RepairItem[]>([
     user: '陈**',
     status: 'dispatched',
     statusText: '已派工',
+    statusTextt: '一般',
     location: '莫干山校区-学生公寓-德馨苑8号楼...',
     description: '厕所排气系统坏了，厕所有点反味'
   }
