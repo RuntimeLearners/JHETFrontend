@@ -25,12 +25,12 @@
       <div class="main-content">
         <div class="function-item" @click="goToMainpage">
           <div class="icon">😀</div>
-          <span class="label">主页面</span>
+          <span class="label">学生页面</span>
         </div>
 
         <div class="function-item" @click="goToAdmin">
           <div class="icon">🤠</div>
-          <span class="label">管理员</span>
+          <span class="label">管理员页面</span>
         </div>
       </div>
     </main>

@@ -37,12 +37,12 @@ const routes = [
    {
     path: '/mainpage', 
     name: 'mainpage', 
-    component: AdminPage  
+    component: MainPage 
   },
    {
     path: '/admin', 
     name: 'admin', 
-    component: MainPage  
+    component: AdminPage   
   },
   {
     path: '/info',
