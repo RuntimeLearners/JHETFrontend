@@ -30,17 +30,17 @@ const onSubmit = async () => {
   }
   loading.value = true
   try {
-    const response = await fetch('http://127.0.0.1:4523/m1/7138393-6861543-default/api/auth/login/combo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: form.name,      
-        password: form.password 
-      })
-    })
-  
+const response = await fetch('http://coco-29.wang:8080/api/auth/login/combo', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'EAAAAAAAAAAAAABAAAAVynVbgAAAAAAAAAAiuj8c3mhRaavKhv-6VUNTV7KQ5bmtLrz' 
+  },
+  body: JSON.stringify({
+    name: form.name,
+    password: form.password
+  })
+})
     const result = await response.json()
     if (response.status === 200) {
       ElMessage.success('登录成功')
