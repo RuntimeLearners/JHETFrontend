@@ -158,8 +158,8 @@ const filters = reactive({
   status: ''
 });
 
-const applyFilters = () => {
-  
+const applyFilters = () => { 'http://coco-29.wang:8080//api/auth/login/combo'
+  alert(`应用筛选条件：紧急程度 - ${filters.urgency || '不限'}，完结状态 - ${filters.status || '不限'}`);
 };
 </script>
 
