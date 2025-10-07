@@ -34,12 +34,13 @@ const response = await fetch('http://coco-29.wang:8080/api/auth/login/combo', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'EAAAAAAAAAAAAABAAAAVynVbgAAAAAAAAAAiuj8c3mhRaavKhv-6VUNTV7KQ5bmtLrz' 
+   // 'Authorization': 'EAAAAAAAAAAAAABAAAAVynVbgAAAAAAAAAAiuj8c3mhRaavKhv-6VUNTV7KQ5bmtLrz' 
   },
-  body: JSON.stringify({
-    name: form.name,
-    password: form.password
-  })
+ body: JSON.stringify({
+  account: form.name, 
+  password: form.password,
+  userType: form.userType
+})
 })
     const result = await response.json()
     if (response.status === 200) {
