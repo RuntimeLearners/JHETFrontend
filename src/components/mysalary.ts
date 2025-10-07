@@ -11,3 +11,17 @@ export default function () {
     
     return {userName, salary, addSalary};
 }
+
+interface Point {
+  x: number;
+  y: number;
+}
+ 
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+function printId(id: Point) {
+ console.log(id);
+}
